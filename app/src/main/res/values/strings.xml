@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">compose-template</string>
+    <string name="unknown_error_message">Unknown error</string>
+    <string name="unknown_host_error_message">Unknown host</string>
+    <string name="route_is_null_error_message">Route error</string>
+    <string name="navigation_todo_list_label">Todo list</string>
+    <string name="navigation_settings_label"> Settings </string>
+    <string name="remove_favorite">remove favorite</string>
+    <string name="add_to_favorite">add to favorite</string>
+    <string name="input_name">input name</string>
+    <string name="input_desc">input desc</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_new">Add new</string>
+    <string name="confirm_edit">Confirm edit</string>
+    <string name="last_updated">last updated\n%1$s</string>
+    <string name="delete">delete</string>
+</resources>
