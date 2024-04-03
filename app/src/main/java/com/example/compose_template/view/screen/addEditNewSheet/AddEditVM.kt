@@ -17,10 +17,6 @@ import kotlinx.coroutines.launch
 import java.time.Instant
 import java.util.Date
 
-enum class ConfirmStatus {
-    Add, Edit
-}
-
 @HiltViewModel(assistedFactory = AddEditVM.DetailViewModelFactory::class)
 class AddEditVM @AssistedInject constructor(
     private val todoUseCase: TodoUseCase,

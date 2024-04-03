@@ -18,7 +18,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+object MoshiModule {
     @Singleton
     @Provides
     fun provideMoshi(): Moshi =
@@ -26,10 +26,7 @@ object NetworkModule {
             .add(KotlinJsonAdapterFactory())
             .add(CustomDateAdapter())
             .build()
-
-
 }
-
 
 private class CustomDateAdapter : JsonAdapter<Date>() {
     private val dateFormat = SimpleDateFormat(SERVER_FORMAT, Locale.getDefault())

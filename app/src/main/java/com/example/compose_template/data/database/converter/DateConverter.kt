@@ -8,7 +8,7 @@ import javax.inject.Singleton
 
 @Singleton
 @ProvidedTypeConverter
-class DateConverters @Inject constructor() {
+class DateConverter @Inject constructor() {
     @TypeConverter
     fun fromTimestamp(value: Long?): Date? {
         return value?.let { Date(it) }

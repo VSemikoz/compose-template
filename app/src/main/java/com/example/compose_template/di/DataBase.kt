@@ -3,7 +3,7 @@ package com.example.compose_template.di
 import android.content.Context
 import androidx.room.Room
 import com.example.compose_template.data.database.TemplateDatabase
-import com.example.compose_template.data.database.converter.DateConverters
+import com.example.compose_template.data.database.converter.DateConverter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,7 +20,7 @@ object DatabaseModule {
     @Provides
     fun provideTemplateDatabase(
         @ApplicationContext context: Context,
-        dateConverters: DateConverters,
-    ) = Room.databaseBuilder(context, TemplateDatabase::class.java, DATABASE_NAME).addTypeConverter(dateConverters)
+        dateConverter: DateConverter,
+    ) = Room.databaseBuilder(context, TemplateDatabase::class.java, DATABASE_NAME).addTypeConverter(dateConverter)
         .build()
 }

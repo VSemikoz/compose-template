@@ -89,8 +89,3 @@ class GlobalVM
     }
 
 }
-
-data class GlobalState(
-    val theme: ThemeState,
-    val language: LanguageState,
-)
