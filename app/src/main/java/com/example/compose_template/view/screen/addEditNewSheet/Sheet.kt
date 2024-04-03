@@ -28,6 +28,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.compose_template.R
 import com.example.compose_template.view.model.TodoItemMinimalUi
+import com.example.compose_template.view.navigation.getNavigator
 import com.example.compose_template.view.theme.TemplateTheme
 import kotlinx.coroutines.time.delay
 import java.time.Duration
@@ -35,19 +36,19 @@ import java.time.Duration
 @Composable
 fun AddEditTodoSheet(
     modifier: Modifier = Modifier,
-    onDismissRequest: () -> Unit = {},
     initialEditTodo: TodoItemMinimalUi? = null,
 ) {
     val vm = hiltViewModel<AddEditVM, AddEditVM.DetailViewModelFactory> {
         it.create(initialEditTodo)
     }
+    val navigator = getNavigator()
 
     val state = vm.state
-    if (state.exitScreen) onDismissRequest()
+    if (state.exitScreen) navigator.popBackStack()
     val nameFocusRequester = remember { FocusRequester() }
     val descFocusRequester = remember { FocusRequester() }
 
-    Dialog(onDismissRequest = { onDismissRequest() }) {
+    Dialog(onDismissRequest = { navigator.popBackStack() }) {
         Card(modifier = modifier) {
             Column(
                 modifier = Modifier.padding(8.dp)
@@ -81,7 +82,7 @@ fun AddEditTodoSheet(
                         color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier
                             .padding(16.dp)
-                            .clickable { onDismissRequest() },
+                            .clickable { navigator.popBackStack() },
                     )
                     Spacer(Modifier.weight(1f))
                     Text(

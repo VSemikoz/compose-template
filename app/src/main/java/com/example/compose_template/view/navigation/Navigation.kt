@@ -5,7 +5,6 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.dialog
@@ -16,26 +15,27 @@ import com.example.compose_template.view.screen.todoList.TodoListScreen
 
 @Composable
 fun TemplateNavHost(
-    navController: NavHostController,
     modifier: Modifier,
-    viewModelStoreOwner: ViewModelStoreOwner,
+    globalVMStoreOwner: ViewModelStoreOwner,
 ) {
+
+    val navController = getNavigator()
     NavHost(
         navController = navController,
         startDestination = Screen.TodoList.route,
         modifier = modifier
     ) {
         composable(route = Screen.TodoList.route) {
-            TodoListScreen(navigate = navController::navigate)
+            TodoListScreen()
         }
 
         composable(route = Screen.Settings.route) {
             CompositionLocalProvider(
-                LocalViewModelStoreOwner provides viewModelStoreOwner
-
+                LocalViewModelStoreOwner provides globalVMStoreOwner
             ) {
-                SettingsScreen(navigate = navController::navigate)
+                SettingsScreen()
             }
+
         }
 
         dialog(route = Screen.AddEditTodo.route, arguments = Screen.AddEditTodo.arguments) { navBackStackEntry ->
@@ -43,7 +43,6 @@ fun TemplateNavHost(
                 TodoMinimalNavType().fromJsonParse(item)
             }
             AddEditTodoSheet(
-                onDismissRequest = navController::popBackStack,
                 initialEditTodo = todo
             )
         }

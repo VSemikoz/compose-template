@@ -11,8 +11,6 @@ import com.example.compose_template.domain.usecase.SettingsUseCase
 import com.example.compose_template.view.model.common.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.time.delay
-import java.time.Duration
 import javax.inject.Inject
 
 
@@ -27,7 +25,6 @@ class GlobalVM
 
     init {
         viewModelScope.launch {
-            delay(Duration.ofSeconds(1))
             val savedSettings = settingsUseCase.getSettings()
             val themeToSet = savedSettings.themeState ?: defaultTheme
             val langToSet = savedSettings.languageState ?: defaultLang

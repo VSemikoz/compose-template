@@ -24,7 +24,6 @@ import com.example.compose_template.view.theme.TemplateTheme
 @Composable
 fun SettingsScreen(
     modifier: Modifier = Modifier,
-    navigate: (String) -> Unit,
 ) {
     val globalVM: GlobalVM = hiltViewModel()
 
@@ -92,6 +91,6 @@ fun LangSwitcher(
 @Composable
 private fun SettingsScreenPreview() {
     TemplateTheme {
-        SettingsScreen{}
+        SettingsScreen()
     }
 }

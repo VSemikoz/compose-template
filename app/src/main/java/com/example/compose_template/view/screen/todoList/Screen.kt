@@ -5,6 +5,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
@@ -16,41 +17,44 @@ import com.example.compose_template.view.components.TodoCard
 import com.example.compose_template.view.components.previewCardMock
 import com.example.compose_template.view.model.TodoItemMinimalUi
 import com.example.compose_template.view.navigation.Screen
+import com.example.compose_template.view.navigation.getNavigator
 
 @Composable
 fun TodoListScreen(
     modifier: Modifier = Modifier,
-    navigate: (String) -> Unit,
     todoList: List<TodoItemMinimalUi> = emptyList(),
 ) {
 
     val vm: TodoListVM = hiltViewModel()
     val list = vm.state.getIfSuccess() ?: todoList
+    val navigator = getNavigator()
 
     Scaffold(
         modifier,
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { navigate(Screen.AddEditTodo.navigate(null)) },
+                onClick = { navigator.navigate(Screen.AddEditTodo.navigate(null)) },
             ) { Icon(imageVector = Icons.Filled.Add, contentDescription = null) }
         },
     ) { paddingValues ->
-        LazyColumn(
-            Modifier
-                .padding(paddingValues)
-                .padding(4.dp, 4.dp)
-        ) {
-            items(list.size) {
-                val item = list[it]
-                TodoCard(
-                    modifier = Modifier.padding(4.dp),
-                    item = item,
-                    onClick = {
-                        navigate(Screen.AddEditTodo.navigate(item))
-                    },
-                    handleRemove = vm::deleteTodo,
-                    handleFavorite = vm::handleFavorite,
-                )
+        Surface {
+            LazyColumn(
+                Modifier
+                    .padding(paddingValues)
+                    .padding(4.dp, 4.dp)
+            ) {
+                items(list.size) {
+                    val item = list[it]
+                    TodoCard(
+                        modifier = Modifier.padding(4.dp),
+                        item = item,
+                        onClick = {
+                            navigator.navigate(Screen.AddEditTodo.navigate(item))
+                        },
+                        handleRemove = vm::deleteTodo,
+                        handleFavorite = vm::handleFavorite,
+                    )
+                }
             }
         }
 
@@ -62,5 +66,5 @@ fun TodoListScreen(
 private fun TodoListScreenPreview() {
     TodoListScreen(todoList = buildList {
         repeat(10) { add(previewCardMock) }
-    }, navigate = {})
+    })
 }

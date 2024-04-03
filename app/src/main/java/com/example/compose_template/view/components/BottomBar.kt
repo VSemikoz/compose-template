@@ -30,9 +30,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.compose_template.view.navigation.Screen
+import com.example.compose_template.view.navigation.getNavigator
 import com.example.compose_template.view.navigation.hasRouteInHierarchy
 import com.example.compose_template.view.navigation.popAndNavigate
 import com.example.compose_template.view.theme.TemplateColors
@@ -41,15 +41,15 @@ import com.example.compose_template.view.theme.TemplateColors
 fun BottomAppBar(
     modifier: Modifier = Modifier,
     currentScreen: Screen,
-    navController: NavHostController,
 ) {
-    val backStackEntry by navController.currentBackStackEntryAsState()
+    val navigator = getNavigator()
+    val backStackEntry by navigator.currentBackStackEntryAsState()
     val currentDestination = backStackEntry?.destination
-    Column {
+    Column(modifier) {
         AnimatedVisibility(visible = currentScreen.isBottomBarVisible) {
             BottomAppBarBuilder(
                 currentDestination = currentDestination,
-                navigate = navController::popAndNavigate,//TODO maybe get another method
+                navigate = navigator::popAndNavigate,//TODO maybe get another method
             )
         }
 
