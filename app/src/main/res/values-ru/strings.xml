@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">compose-template</string>
+    <string name="unknown_error_message">Неизвестная ошибка</string>
+    <string name="unknown_host_error_message">Неизвесный хост</string>
+    <string name="route_is_null_error_message">Ошибка навигации</string>
+    <string name="navigation_todo_list_label">Туду лист</string>
+    <string name="navigation_settings_label"> Настройки</string>
+    <string name="remove_favorite">удалить избранное</string>
+    <string name="add_to_favorite">добавить избранное</string>
+    <string name="input_name">введите имя</string>
+    <string name="input_desc">введите описание</string>
+    <string name="cancel">Отмена</string>
+    <string name="add_new">Добавить</string>
+    <string name="confirm_edit">Поддветдить измененеие</string>
+    <string name="last_updated">обновелнено в\n%1$s</string>
+    <string name="delete">удалить</string>
+    <string name="change_language">Сменить язык</string>
+    <string name="change_theme">Сменить тему</string>
+</resources>

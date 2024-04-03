@@ -1,6 +1,5 @@
 package com.example.compose_template.view.screen.todoList
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -45,6 +44,4 @@ class TodoListVM
             todoUseCase.setFavorite(todo.id, !currentState)
         }
     }
-
-
 }

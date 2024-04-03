@@ -13,6 +13,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
+        resourceConfigurations.addAll(setOf("en", "ru"))
         applicationId = "com.example.compose_template"
         minSdk = 26
         targetSdk = 34
