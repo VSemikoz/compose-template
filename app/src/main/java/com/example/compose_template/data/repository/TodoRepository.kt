@@ -1,7 +1,6 @@
 package com.example.compose_template.data.repository
 
-import com.example.compose_template.data.converter.intoData
-import com.example.compose_template.data.converter.intoDomain
+import com.example.compose_template.data.converter.TodoConverter
 import com.example.compose_template.data.database.TemplateDatabase
 import com.example.compose_template.domain.entity.TodoItemAddNewEntity
 import com.example.compose_template.domain.entity.TodoItemEntity
@@ -14,21 +13,23 @@ import javax.inject.Singleton
 @Singleton
 class TodoRepository @Inject constructor(
     private val database: TemplateDatabase,
-) : ITodoRepository {
+    private val todoConverter: TodoConverter,
+
+    ) : ITodoRepository {
     override suspend fun getAllTodo(): List<TodoItemEntity> {
-        return database.todoDao.getAll().map { it.intoDomain() }
+        return database.todoDao.getAll().map { todoConverter.toTodoEntity(it) }
     }
 
     override suspend fun getById(id: Int): TodoItemEntity {
-        return database.todoDao.getById(id).intoDomain()
+        return todoConverter.toTodoEntity(database.todoDao.getById(id))
     }
 
     override fun subscribeAll(): Flow<List<TodoItemEntity>> {
-        return database.todoDao.flowAll().map { list -> list.map { it.intoDomain() } }
+        return database.todoDao.flowAll().map { list -> list.map { todoConverter.toTodoEntity(it) } }
     }
 
     override suspend fun addNew(item: TodoItemAddNewEntity) {
-        database.todoDao.addNew(item.intoData())
+        database.todoDao.addNew(todoConverter.toTodoData(item))
     }
 
     override suspend fun deleteById(id: Int) {
@@ -36,7 +37,7 @@ class TodoRepository @Inject constructor(
     }
 
     override suspend fun update(entity: TodoItemEntity) {
-        database.todoDao.update(entity.intoData())
+        database.todoDao.update(todoConverter.toTodoData(entity))
     }
 
     override suspend fun setFavorite(id: Int, isFavorite: Boolean) {

@@ -68,6 +68,7 @@ dependencies {
     implementation(libs.androidx.navigation)
     implementation(libs.kotlinx.coroutines)
     implementation(libs.moshi)
+    implementation(libs.androidx.appcompat)
     ksp(libs.moshi.codegen)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)
