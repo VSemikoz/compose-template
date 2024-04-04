@@ -21,6 +21,7 @@ private val DarkColorScheme = darkColorScheme(
     secondary = TemplateColors.Blue,
     tertiary = TemplateColors.Gray,
     background = TemplateColors.Black,
+    surface = TemplateColors.Black,
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -28,6 +29,7 @@ private val LightColorScheme = lightColorScheme(
     secondary = TemplateColors.Blue,
     tertiary = TemplateColors.Gray,
     background = TemplateColors.White,
+    surface = TemplateColors.White,
 )
 
 @Composable
