@@ -1,9 +1,8 @@
-package com.example.compose_template.data.database.model
+package com.example.compose_template.data.models.todo
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.Date
-
 
 @Entity(tableName = "todo")
 data class TodoData(

@@ -14,7 +14,7 @@ import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.compose_template.domain.entity.ThemeState
+import com.example.compose_template.domain.entity.settings.ThemeState
 import com.example.compose_template.view.components.BottomAppBar
 import com.example.compose_template.view.navigation.TemplateNavHost
 import com.example.compose_template.view.navigation.currentScreen

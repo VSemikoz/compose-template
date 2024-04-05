@@ -5,8 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.compose_template.domain.entity.LanguageState
-import com.example.compose_template.domain.entity.ThemeState
+import com.example.compose_template.domain.entity.settings.LanguageState
+import com.example.compose_template.domain.entity.settings.ThemeState
 import com.example.compose_template.domain.usecase.SettingsUseCase
 import com.example.compose_template.view.model.common.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel

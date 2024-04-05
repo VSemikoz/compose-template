@@ -1,10 +1,10 @@
 package com.example.compose_template.data.repository
 
 import com.example.compose_template.data.sharedPref.PreferencesManager
-import com.example.compose_template.domain.entity.DefaultSettings
-import com.example.compose_template.domain.entity.LanguageState
-import com.example.compose_template.domain.entity.SettingsEntity
-import com.example.compose_template.domain.entity.ThemeState
+import com.example.compose_template.domain.entity.settings.DefaultSettings
+import com.example.compose_template.domain.entity.settings.LanguageState
+import com.example.compose_template.domain.entity.settings.SettingsEntity
+import com.example.compose_template.domain.entity.settings.ThemeState
 import com.example.compose_template.domain.repository.ISettingsRepository
 import javax.inject.Inject
 import javax.inject.Singleton

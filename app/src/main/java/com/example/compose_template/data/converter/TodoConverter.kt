@@ -2,9 +2,9 @@ package com.example.compose_template.data.converter
 
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
-import com.example.compose_template.data.database.model.TodoData
-import com.example.compose_template.domain.entity.TodoItemAddNewEntity
-import com.example.compose_template.domain.entity.TodoItemEntity
+import com.example.compose_template.data.models.todo.TodoData
+import com.example.compose_template.domain.entity.todo.TodoItemAddNewEntity
+import com.example.compose_template.domain.entity.todo.TodoItemEntity
 import com.squareup.moshi.Moshi
 import java.time.Instant
 import java.util.Date

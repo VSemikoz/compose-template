@@ -1,7 +1,7 @@
 package com.example.compose_template.domain.usecase
 
-import com.example.compose_template.domain.entity.TodoItemAddNewEntity
-import com.example.compose_template.domain.entity.TodoItemEntity
+import com.example.compose_template.domain.entity.todo.TodoItemAddNewEntity
+import com.example.compose_template.domain.entity.todo.TodoItemEntity
 import com.example.compose_template.domain.repository.ITodoRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

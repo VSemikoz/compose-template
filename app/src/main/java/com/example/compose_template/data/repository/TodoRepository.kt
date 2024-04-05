@@ -2,8 +2,8 @@ package com.example.compose_template.data.repository
 
 import com.example.compose_template.data.converter.TodoConverter
 import com.example.compose_template.data.database.TemplateDatabase
-import com.example.compose_template.domain.entity.TodoItemAddNewEntity
-import com.example.compose_template.domain.entity.TodoItemEntity
+import com.example.compose_template.domain.entity.todo.TodoItemAddNewEntity
+import com.example.compose_template.domain.entity.todo.TodoItemEntity
 import com.example.compose_template.domain.repository.ITodoRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

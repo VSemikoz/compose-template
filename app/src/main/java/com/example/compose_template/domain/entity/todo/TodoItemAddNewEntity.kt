@@ -1,4 +1,4 @@
-package com.example.compose_template.domain.entity
+package com.example.compose_template.domain.entity.todo
 
 import java.util.Date
 

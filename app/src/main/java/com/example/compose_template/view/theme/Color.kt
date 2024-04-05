@@ -16,8 +16,7 @@ object TemplateColors {
     //Accent colors
     val Red = Color(0xFFE70909)
     val Yellow = Color(0xFFF5E240)
-
-
+    val Pink = Color(0xFFF551BE)
 }
 
 

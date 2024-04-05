@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.compose_template.data.database.converter.DateConverter
 import com.example.compose_template.data.database.dao.TodoDao
-import com.example.compose_template.data.database.model.TodoData
+import com.example.compose_template.data.models.todo.TodoData
 
 
 @Database(

@@ -1,7 +1,7 @@
 package com.example.compose_template.domain.repository
 
-import com.example.compose_template.domain.entity.TodoItemAddNewEntity
-import com.example.compose_template.domain.entity.TodoItemEntity
+import com.example.compose_template.domain.entity.todo.TodoItemAddNewEntity
+import com.example.compose_template.domain.entity.todo.TodoItemEntity
 import kotlinx.coroutines.flow.Flow
 
 interface ITodoRepository {
