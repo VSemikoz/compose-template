@@ -39,6 +39,8 @@ versionCatalogVersionsPlugin = "0.48.0"
 versionCatalogUpdatePlugin = "0.8.1"
 gson = "2.10.1"
 appcompat = "1.6.1"
+pagingCommonKtx = "3.2.1"
+pagingCompose = "3.2.1"
 
 [libraries]
 google-gson = { module = "com.google.code.gson:gson",version.ref = "gson"}
@@ -103,6 +105,8 @@ compose-ui-junit = { module = "androidx.compose.ui:ui-test-junit4" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-paging-common-ktx = { group = "androidx.paging", name = "paging-common-ktx", version.ref = "pagingCommonKtx" }
+androidx-paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "pagingCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }

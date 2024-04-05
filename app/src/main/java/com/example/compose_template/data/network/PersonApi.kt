@@ -6,5 +6,5 @@ import retrofit2.http.Query
 
 interface PersonApi {
     @GET("api/")
-    suspend fun getPersonList(@Query("results") count: Int): PersonResultData
+    suspend fun getPersonList(@Query("results") count: Int, @Query("page") page: Int): PersonResultData
 }

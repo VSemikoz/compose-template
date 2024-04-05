@@ -1,15 +1,17 @@
 package com.example.compose_template.view.screen.settings
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import androidx.paging.map
 import com.example.compose_template.domain.usecase.PersonUseCase
 import com.example.compose_template.view.adapter.toUi
 import com.example.compose_template.view.model.PersonItemUi
 import com.example.compose_template.view.model.common.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,13 +21,21 @@ class SettingsVM
     private val personUseCase: PersonUseCase,
 ) : ViewModel() {
 
-    var state by mutableStateOf<UiState<List<PersonItemUi>>>(UiState.Loading)
+    var state: UiState<MutableStateFlow<PagingData<PersonItemUi>>> = UiState.Loading
         private set
 
     init {
         viewModelScope.launch {
-            val list = personUseCase.getPersonList()
-            state = UiState.Success(list.results.map { it.toUi() })
+            personUseCase.getPersonList()
+                .distinctUntilChanged()
+                .cachedIn(viewModelScope)
+                .collect { page ->
+                    state = UiState.Success(
+                        MutableStateFlow(
+                            page.map { it.toUi() }
+                        )
+                    )
+                }
         }
     }
 

@@ -70,6 +70,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines)
     implementation(libs.moshi)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.paging.common.ktx)
+    implementation(libs.androidx.paging.compose)
     ksp(libs.moshi.codegen)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)
