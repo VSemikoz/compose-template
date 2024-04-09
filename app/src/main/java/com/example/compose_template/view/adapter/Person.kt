@@ -1,6 +1,6 @@
 package com.example.compose_template.view.adapter
 
-import PersonEntry
+import com.example.compose_template.domain.entity.person.PersonEntry
 import com.example.compose_template.view.model.PersonGender
 import com.example.compose_template.view.model.PersonItemUi
 import java.time.LocalDate

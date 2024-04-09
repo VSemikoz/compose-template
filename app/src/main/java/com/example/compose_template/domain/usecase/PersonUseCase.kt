@@ -1,6 +1,6 @@
 package com.example.compose_template.domain.usecase
 
-import PersonEntry
+import com.example.compose_template.domain.entity.person.PersonEntry
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData

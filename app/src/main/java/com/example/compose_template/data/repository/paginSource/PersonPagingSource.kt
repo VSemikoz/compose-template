@@ -1,6 +1,6 @@
 package com.example.compose_template.data.repository.paginSource
 
-import PersonEntry
+import com.example.compose_template.domain.entity.person.PersonEntry
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.compose_template.domain.repository.IPersonRepository

@@ -1,6 +1,6 @@
 package com.example.compose_template.data.converter
 
-import PersonEntry
+import com.example.compose_template.domain.entity.person.PersonEntry
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
 import com.example.compose_template.data.models.person.PersonCoordinatesData
@@ -15,17 +15,17 @@ import com.example.compose_template.data.models.person.PersonResultData
 import com.example.compose_template.data.models.person.PersonResultInfoData
 import com.example.compose_template.data.models.person.PersonStreetData
 import com.example.compose_template.data.models.person.PersonTimezoneData
-import com.example.compose_template.domain.entity.person.person.PersonCoordinatesEntry
-import com.example.compose_template.domain.entity.person.person.PersonDobEntry
-import com.example.compose_template.domain.entity.person.person.PersonIdEntry
-import com.example.compose_template.domain.entity.person.person.PersonLocationEntry
-import com.example.compose_template.domain.entity.person.person.PersonNameEntry
-import com.example.compose_template.domain.entity.person.person.PersonPictureEntry
-import com.example.compose_template.domain.entity.person.person.PersonRegisteredEntry
-import com.example.compose_template.domain.entity.person.person.PersonResultEntry
-import com.example.compose_template.domain.entity.person.person.PersonResultInfoEntry
-import com.example.compose_template.domain.entity.person.person.PersonStreetEntry
-import com.example.compose_template.domain.entity.person.person.PersonTimezoneEntry
+import com.example.compose_template.domain.entity.person.PersonCoordinatesEntry
+import com.example.compose_template.domain.entity.person.PersonDobEntry
+import com.example.compose_template.domain.entity.person.PersonIdEntry
+import com.example.compose_template.domain.entity.person.PersonLocationEntry
+import com.example.compose_template.domain.entity.person.PersonNameEntry
+import com.example.compose_template.domain.entity.person.PersonPictureEntry
+import com.example.compose_template.domain.entity.person.PersonRegisteredEntry
+import com.example.compose_template.domain.entity.person.PersonResultEntry
+import com.example.compose_template.domain.entity.person.PersonResultInfoEntry
+import com.example.compose_template.domain.entity.person.PersonStreetEntry
+import com.example.compose_template.domain.entity.person.PersonTimezoneEntry
 import com.squareup.moshi.Moshi
 import javax.inject.Inject
 import javax.inject.Singleton

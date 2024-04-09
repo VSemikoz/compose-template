@@ -1,6 +1,6 @@
 package com.example.compose_template.domain.repository
 
-import com.example.compose_template.domain.entity.person.person.PersonResultEntry
+import com.example.compose_template.domain.entity.person.PersonResultEntry
 
 
 interface IPersonRepository {
