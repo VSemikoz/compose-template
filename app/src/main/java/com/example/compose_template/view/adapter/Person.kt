@@ -23,7 +23,6 @@ private fun String.getGender(): PersonGender {
     return if (this == "female") {
         PersonGender.female
     } else {
-
         PersonGender.male
     }
 }
