@@ -1,6 +1,7 @@
 package com.example.compose_template.di
 
 import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.compose_template.data.network.PersonApi
 import com.squareup.moshi.Moshi
 import dagger.Module
@@ -21,13 +22,8 @@ object NetworkModule {
     @Provides
     fun provideOkHttpClientBuilder(
         @ApplicationContext context: Context,
-//        responseCodeInterceptor: ResponseCodeInterceptor
     ): OkHttpClient.Builder = OkHttpClient.Builder().apply {
-        //TODO add test interceptor
-//            if (FLAVOR != PRODUCTION_FLAVOR) {
-//                addInterceptor(ChuckerInterceptor.Builder(context).build())
-//            }
-//            addInterceptor(responseCodeInterceptor)
+        addInterceptor(ChuckerInterceptor.Builder(context).build())
         connectTimeout(15, TimeUnit.SECONDS)
         readTimeout(20, TimeUnit.SECONDS)
         writeTimeout(15, TimeUnit.SECONDS)
@@ -40,5 +36,5 @@ object NetworkModule {
     ): PersonApi = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(MoshiConverterFactory.create(moshi))
         .client(builder.build()).build().create(PersonApi::class.java)
 
-    const val BASE_URL = "https://randomuser.me/"
+    private const val BASE_URL = "https://randomuser.me/"
 }
