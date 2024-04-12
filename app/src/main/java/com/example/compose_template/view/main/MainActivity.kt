@@ -1,4 +1,4 @@
-package com.example.compose_template
+package com.example.compose_template.view.main
 
 import android.os.Bundle
 import androidx.activity.compose.setContent

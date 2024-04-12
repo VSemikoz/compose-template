@@ -1,4 +1,4 @@
-package com.example.compose_template
+package com.example.compose_template.view.app
 
 import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory
